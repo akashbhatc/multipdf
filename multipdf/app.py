@@ -65,7 +65,7 @@ def create_conversational_chain(vector_store):
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     retriever=vector_store.as_retriever(search_kwargs={"k": 2})
     chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff',
-                                                 retriever=retriever),
+                                                 retriever=retriever,
                                                  memory=memory)
     return chain
 
